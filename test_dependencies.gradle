@@ -1,0 +1,26 @@
+android {
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+}
+
+dependencies {
+    //Jvm Test
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_version"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+
+    //opentest(k/j)  Needed as workaround: https://github.com/willowtreeapps/assertk/issues/172
+    testImplementation "com.willowtreeapps.assertk:assertk-jvm:$assertk_version"
+    testImplementation "org.opentest4j:opentest4j:$opentest4j_version"
+    testImplementation "com.willowtreeapps.opentest4k:opentest4k:$opentest4k_version"
+
+
+    //Android Test
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_espresso_version"
+}
