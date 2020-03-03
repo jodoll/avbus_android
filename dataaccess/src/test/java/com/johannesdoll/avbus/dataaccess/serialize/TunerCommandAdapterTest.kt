@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test
 internal class TunerCommandAdapterTest {
 
     private val moshi = Moshi.Builder()
-        .add(CommandAdapter)
+        .add(SpecificCommandAdapter)
         .build()
 
     @Test
