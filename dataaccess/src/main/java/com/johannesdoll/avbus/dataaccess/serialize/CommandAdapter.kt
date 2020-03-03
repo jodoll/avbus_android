@@ -19,40 +19,30 @@ internal object CommandAdapter {
         cdAdapter: JsonAdapter<CdCommand>
     ) {
         writer.beginObject()
+        writer.name("device")
+        deviceAdapter.toJson(writer, command.device)
         when (command) {
             is TunerCommand -> {
-                writer.name("device")
-                deviceAdapter.toJson(writer, Device.Tuner)
                 writer.name("command")
                 tunerAdapter.toJson(writer, command)
             }
             is AmpCommand -> {
-                writer.name("device")
-                deviceAdapter.toJson(writer, Device.Amp)
                 writer.name("command")
                 ampAdapter.toJson(writer, command)
             }
             is TapeCommand -> {
-                writer.name("device")
-                deviceAdapter.toJson(writer, Device.Tape)
                 writer.name("command")
                 tapeAdapter.toJson(writer, command)
             }
             is VcrCommand -> {
-                writer.name("device")
-                deviceAdapter.toJson(writer, Device.Vcr)
                 writer.name("command")
                 vcrAdapter.toJson(writer, command)
             }
             is PhonoCommand -> {
-                writer.name("device")
-                deviceAdapter.toJson(writer, Device.Phono)
                 writer.name("command")
                 phonoAdapter.toJson(writer, command)
             }
             is CdCommand -> {
-                writer.name("device")
-                deviceAdapter.toJson(writer, Device.Cd)
                 writer.name("command")
                 cdAdapter.toJson(writer, command)
             }

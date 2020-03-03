@@ -1,7 +1,10 @@
 package com.johannesdoll.avbus.dataaccess.data
 
 internal sealed class Command {
+    abstract val device: Device
     sealed class TunerCommand : Command() {
+        override val device = Device.Tuner
+
         object AM : TunerCommand()
         object FM : TunerCommand()
         object TUNE_DOWN : TunerCommand()
@@ -16,8 +19,12 @@ internal sealed class Command {
         object MEMORY_8 : TunerCommand()
     }
 
-    sealed class TvCommand : Command()
+    sealed class TvCommand : Command() {
+        override val device = Device.Tv
+    }
     sealed class AmpCommand : Command() {
+        override val device = Device.Amp
+
         object VOLUME_DOWN_FRONT : AmpCommand()
         object VOLUME_UP_FRONT : AmpCommand()
         object VOLUME_DOWN_REAR : AmpCommand()
@@ -33,6 +40,8 @@ internal sealed class Command {
     }
 
     sealed class TapeCommand : Command() {
+        override val device = Device.Tape
+
         object PLAY_RPT : TapeCommand()
         object STOP_C : TapeCommand()
         object REW : TapeCommand()
@@ -47,12 +56,16 @@ internal sealed class Command {
     }
 
     sealed class VcrCommand : Command() {
+        override val device = Device.Vcr
+
         object DIRECTION : VcrCommand()
         object MEMO : VcrCommand()
         object REC_MUTE : VcrCommand()
     }
 
     sealed class PhonoCommand : Command() {
+        override val device = Device.Phono
+
         object PLAY : PhonoCommand()
         object CUT : PhonoCommand()
         object CUE : PhonoCommand()
@@ -60,11 +73,15 @@ internal sealed class Command {
     }
 
     sealed class CdCommand : Command() {
+        override val device = Device.Cd
+
         object PLAY_NEXT : CdCommand()
         object STOP_C : CdCommand()
         object PAUSE : CdCommand()
         object REPEAT : CdCommand()
     }
 
-    sealed class SystemCommand : Command()
+    sealed class SystemCommand : Command() {
+        override val device = Device.System
+    }
 }
