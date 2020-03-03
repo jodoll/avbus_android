@@ -1,6 +1,6 @@
-package com.johannesdoll.avbus.core.domain
+package com.johannesdoll.avbus.dataaccess.data
 
-sealed class Command<T : Device> {
+internal sealed class Command<T : Device> {
     sealed class TunerCommand : Command<Device.Tuner>() {
         object AM : TunerCommand()
         object FM : TunerCommand()

@@ -1,7 +1,7 @@
-package com.johannesdoll.avbus.core.domain
+package com.johannesdoll.avbus.dataaccess.data
 
 
-sealed class Device {
+internal sealed class Device {
 
     object Tuner : Device()
 
