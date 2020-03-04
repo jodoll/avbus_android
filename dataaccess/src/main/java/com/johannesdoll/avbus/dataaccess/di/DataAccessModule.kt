@@ -8,6 +8,7 @@ import com.squareup.moshi.Moshi
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 @Module(includes = [DataAccessModule.Provider::class])
@@ -26,6 +27,12 @@ abstract class DataAccessModule {
             .add(SpecificCommandAdapter)
             .add(DeviceAdapter)
             .build()
+
+        @Singleton
+        @Provides
+        fun provideOkHttpClient() = OkHttpClient.Builder()
+            .build()
+
     }
 
 }

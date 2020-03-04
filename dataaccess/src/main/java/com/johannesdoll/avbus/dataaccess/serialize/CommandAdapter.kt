@@ -94,7 +94,7 @@ internal object CommandAdapter {
         return JsonCommand(deviceString, commandString)
     }
 
-    data class JsonCommand(
+    private data class JsonCommand(
         val device: String,
         val command: String
     )
