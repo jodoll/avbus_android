@@ -10,7 +10,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 
-@Module(includes = [DataAccessModule.Provider::class])
+@Module
 abstract class DataAccessModule {
 
     abstract fun remoteControlDataAccess(): RemoteControlDataAccess
@@ -18,8 +18,7 @@ abstract class DataAccessModule {
     @Binds
     internal abstract fun bindRemoteControlDataAccess(dataAccessImpl: RemoteControlDataAccessImpl): RemoteControlDataAccess
 
-    @Module
-    object Provider {
+    companion object Provider {
         @Provides
         fun provideMoshi() = Moshi.Builder()
             .add(SpecificCommandAdapter)
