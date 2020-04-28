@@ -1,6 +1,6 @@
 package com.johannesdoll.avbus.dataaccess.rest
 
-object StatusCode {
+internal object StatusCode {
     const val CONTINUE = 100
     const val SWITCHING_PROTOCOLS = 101
     const val PROCESSING = 102

@@ -20,13 +20,13 @@ abstract class DataAccessModule {
 
     companion object Provider {
         @Provides
-        fun provideMoshi() = Moshi.Builder()
+        internal fun provideMoshi() = Moshi.Builder()
             .add(SpecificCommandAdapter)
             .add(DeviceAdapter)
             .build()
 
         @Provides
-        fun provideOkHttpClient() = OkHttpClient.Builder()
+        internal fun provideOkHttpClient() = OkHttpClient.Builder()
             .build()
 
     }
