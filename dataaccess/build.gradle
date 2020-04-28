@@ -30,9 +30,9 @@ dependencies {
 
     api 'com.google.dagger:dagger:2.26'
     kapt 'com.google.dagger:dagger-compiler:2.26'
-    implementation "com.squareup.moshi:moshi:$moshi_version"
+    api "com.squareup.moshi:moshi:$moshi_version"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
     implementation "io.arrow-kt:arrow-core:$arrow_version"
     implementation "io.arrow-kt:arrow-syntax:$arrow_version"
