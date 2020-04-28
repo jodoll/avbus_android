@@ -9,7 +9,6 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
-import javax.inject.Singleton
 
 @Module(includes = [DataAccessModule.Provider::class])
 abstract class DataAccessModule {
@@ -21,14 +20,12 @@ abstract class DataAccessModule {
 
     @Module
     object Provider {
-        @Singleton
         @Provides
         fun provideMoshi() = Moshi.Builder()
             .add(SpecificCommandAdapter)
             .add(DeviceAdapter)
             .build()
 
-        @Singleton
         @Provides
         fun provideOkHttpClient() = OkHttpClient.Builder()
             .build()
