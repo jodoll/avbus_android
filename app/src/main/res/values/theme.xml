@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/textOnPrimaryColor</item>
+
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/textOnSecondaryColor</item>
+
+        <item name="android:colorBackground">@color/backgroundColor</item>
+        <item name="colorOnBackground">@color/textOnBackgroundColor</item>
+
+        <!-- New MaterialComponents attributes. -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.AvBus.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.AvBus.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.AvBus.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.AvBus.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.AvBus.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.AvBus.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.AvBus.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.AvBus.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.AvBus.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.AvBus.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.AvBus.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.AvBus.Button</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.AvBus.Overline</item>
+    </style>
+
+</resources>
