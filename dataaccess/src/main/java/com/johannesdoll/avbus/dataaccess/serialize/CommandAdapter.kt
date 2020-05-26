@@ -1,8 +1,8 @@
 package com.johannesdoll.avbus.dataaccess.serialize
 
-import com.johannesdoll.avbus.dataaccess.data.Command
-import com.johannesdoll.avbus.dataaccess.data.Command.*
-import com.johannesdoll.avbus.dataaccess.data.Device
+import com.johannesdoll.avbus.core.entity.Command
+import com.johannesdoll.avbus.core.entity.Command.*
+import com.johannesdoll.avbus.core.entity.Device
 import com.squareup.moshi.*
 
 internal object CommandAdapter {

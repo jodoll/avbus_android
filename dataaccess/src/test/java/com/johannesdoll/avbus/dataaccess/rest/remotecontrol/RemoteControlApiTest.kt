@@ -1,6 +1,6 @@
 package com.johannesdoll.avbus.dataaccess.rest.remotecontrol
 
-import com.johannesdoll.avbus.dataaccess.data.Command
+import com.johannesdoll.avbus.core.entity.Command
 import com.johannesdoll.avbus.dataaccess.serialize.CommandAdapter
 import com.johannesdoll.avbus.dataaccess.serialize.DeviceAdapter
 import com.johannesdoll.avbus.dataaccess.serialize.SpecificCommandAdapter

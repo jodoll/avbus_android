@@ -1,6 +1,6 @@
 package com.johannesdoll.avbus.dataaccess.serialize
 
-import com.johannesdoll.avbus.dataaccess.data.Device
+import com.johannesdoll.avbus.core.entity.Device
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
 

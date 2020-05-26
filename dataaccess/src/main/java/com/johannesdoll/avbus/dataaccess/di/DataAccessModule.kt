@@ -1,7 +1,7 @@
 package com.johannesdoll.avbus.dataaccess.di
 
-import com.johannesdoll.avbus.core.usecase.remotecontrol.RemoteControlDataAccess
-import com.johannesdoll.avbus.dataaccess.remotecontrol.RemoteControlDataAccessImpl
+import com.johannesdoll.avbus.core.application.send.command.port.out.SendCommandOutputPort
+import com.johannesdoll.avbus.dataaccess.remotecontrol.SendCommandAdapter
 import com.johannesdoll.avbus.dataaccess.serialize.DeviceAdapter
 import com.johannesdoll.avbus.dataaccess.serialize.SpecificCommandAdapter
 import com.squareup.moshi.Moshi
@@ -13,10 +13,10 @@ import okhttp3.OkHttpClient
 @Module
 abstract class DataAccessModule {
 
-    abstract fun remoteControlDataAccess(): RemoteControlDataAccess
+    abstract fun remoteControlDataAccess(): SendCommandOutputPort
 
     @Binds
-    internal abstract fun bindRemoteControlDataAccess(dataAccessImpl: RemoteControlDataAccessImpl): RemoteControlDataAccess
+    internal abstract fun bindRemoteControlDataAccess(adapter: SendCommandAdapter): SendCommandOutputPort
 
     companion object Provider {
         @Provides

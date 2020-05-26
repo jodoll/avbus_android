@@ -6,7 +6,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
-    implementation "io.arrow-kt:arrow-core:$arrow_version"
+    api "io.arrow-kt:arrow-core:$arrow_version"
     implementation "io.arrow-kt:arrow-syntax:$arrow_version"
     kapt "io.arrow-kt:arrow-meta:$arrow_version"
 

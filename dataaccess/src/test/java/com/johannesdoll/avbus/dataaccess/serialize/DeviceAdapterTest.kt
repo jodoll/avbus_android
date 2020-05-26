@@ -2,7 +2,7 @@ package com.johannesdoll.avbus.dataaccess.serialize
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
-import com.johannesdoll.avbus.dataaccess.data.Device
+import com.johannesdoll.avbus.core.entity.Device
 import com.johannesdoll.avbus.dataaccess.moshi.adapter
 import com.squareup.moshi.Moshi
 import org.junit.jupiter.api.Test

@@ -1,6 +1,6 @@
-package com.johannesdoll.avbus.dataaccess.data
+package com.johannesdoll.avbus.core.entity
 
-internal sealed class Command {
+sealed class Command {
     abstract val device: Device
     sealed class TunerCommand : Command() {
         override val device = Device.Tuner

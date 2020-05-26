@@ -1,6 +1,6 @@
 package com.johannesdoll.avbus.ui.remotecontrol.di
 
-import com.johannesdoll.avbus.core.usecase.di.RemoteControlUseCaseModule
+import com.johannesdoll.avbus.core.di.RemoteControlUseCaseModule
 import com.johannesdoll.avbus.dataaccess.di.DataAccessModule
 import com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlViewModel
 import dagger.Component
