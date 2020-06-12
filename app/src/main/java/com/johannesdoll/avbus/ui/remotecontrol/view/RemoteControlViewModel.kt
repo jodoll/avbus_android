@@ -31,7 +31,6 @@ class RemoteControlViewModel
         viewModelScope.launch {
             useCase.sendCommand(command)
                 .onLeft { handeIoError(it) }
-
         }
     }
 
