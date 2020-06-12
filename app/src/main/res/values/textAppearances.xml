@@ -52,4 +52,10 @@
     <style name="TextAppearance.AvBus.Overline" parent="TextAppearance.MaterialComponents.Overline">
         <item name="android:textColor">?colorOnBackground</item>
     </style>
+
+    <!--Remote Control Styles-->
+    <style name="TextAppearance.AvBus.RemoteControl.Device" parent="TextAppearance.AvBus.Headline5">
+        <item name="android:textColor">?colorPrimary</item>
+        <item name="textAllCaps">true</item>
+    </style>
 </resources>
