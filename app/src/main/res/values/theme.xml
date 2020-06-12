@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/textOnSecondaryColor</item>
 
         <item name="android:colorBackground">@color/backgroundColor</item>
-        <item name="colorOnBackground">@color/textOnBackgroundColor</item>
+        <item name="colorOnBackground">@color/onBackgroundColor</item>
 
         <!-- New MaterialComponents attributes. -->
         <item name="textAppearanceHeadline1">@style/TextAppearance.AvBus.Headline1</item>

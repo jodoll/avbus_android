@@ -11,5 +11,5 @@
         <color name="textOnSecondaryColor">#000000</color>
 
         <color name="backgroundColor">@android:color/background_dark</color>
-        <color name="textOnBackgroundColor">#9DBDBE</color>
+        <color name="onBackgroundColor">#9DBDBE</color>
 </resources>
