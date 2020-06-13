@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="RemoteControlImageButton">
+    <declare-styleable name="RemoteControlButton">
         <attr name="android:text" format="string" />
         <attr name="android:src" format="string" />
+        <attr name="textAppearance" format="reference" />
+        <attr name="filled" format="boolean" />
     </declare-styleable>
 </resources>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".ui.remotecontrol.view.RemoteControlFragment">
 
     <com.google.android.material.textview.MaterialTextView
@@ -21,46 +21,88 @@
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/controls1"
+        android:background="@drawable/backgound_border"
         app:layout_constraintBottom_toBottomOf="@id/controls2"
-        android:background="@drawable/backgound_border" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/controls1" />
 
     <LinearLayout
-        android:layout_marginTop="16dp"
         android:id="@+id/controls1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:gravity="center_vertical"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/deviceName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        app:layout_constraintTop_toBottomOf="@id/deviceName">
 
-        <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlImageButton
-            android:id="@+id/phonoButton"
-            android:layout_width="wrap_content"
+        <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
+            android:id="@+id/tunerButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Phono"
-            android:src="@drawable/ic_phono_48dp" />
+            android:src="@drawable/ic_tuner_48dp"
+            android:text="Tuner" />
+
+        <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
+            android:id="@+id/phonoButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_phono_48dp"
+            android:text="Phono" />
+
+        <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
+            android:id="@+id/cdButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cd_48dp"
+            android:text="Cd" />
+
+        <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
+            android:id="@+id/tapeButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tape_48dp"
+            android:text="Tape/Mon" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/controls2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/controls1"
+        android:weightSum="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        app:layout_constraintTop_toBottomOf="@id/controls1">
 
-        <include layout="@layout/button_remote_control_text" />
+        <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
+            android:id="@+id/tvButton"
+            style="@style/Widget.AvBus.Button.RemoteControl.Filled"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Tv" />
 
-        <include layout="@layout/button_remote_control_text" />
+        <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
+            android:id="@+id/videoButton"
+            style="@style/Widget.AvBus.Button.RemoteControl.Filled"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Video" />
 
-        <include layout="@layout/button_remote_control_text" />
+        <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
+            android:id="@+id/vcrButton"
+            style="@style/Widget.AvBus.Button.RemoteControl.Filled"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Vcr" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,14 +8,16 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.StyleRes
 import androidx.core.content.res.use
+import androidx.core.view.isInvisible
 import androidx.core.view.setPadding
 import com.johannesdoll.avbus.R
 import com.johannesdoll.avbus.ui.remotecontrol.util.context.getDimensionPixelOffset
 import com.johannesdoll.avbus.ui.remotecontrol.util.context.getThemeValue
 
 
-class RemoteControlImageButton : LinearLayout {
+class RemoteControlButton : LinearLayout {
 
     private lateinit var icon: ImageView
     private lateinit var label: TextView
@@ -63,7 +65,7 @@ class RemoteControlImageButton : LinearLayout {
     }
 
     private fun inflateView(context: Context) {
-        LayoutInflater.from(context).inflate(R.layout.button_remote_control_image, this)
+        LayoutInflater.from(context).inflate(R.layout.button_remote_control, this)
         icon = findViewById(R.id.image)
         label = findViewById(R.id.label)
     }
@@ -74,21 +76,45 @@ class RemoteControlImageButton : LinearLayout {
     }
 
     private fun AttributeSet.extractStyledAttributes() = context
-        .obtainStyledAttributes(this, R.styleable.RemoteControlImageButton)
+        .obtainStyledAttributes(this, R.styleable.RemoteControlButton)
         .use {
             StyledAttributes(
-                label = it.getString(R.styleable.RemoteControlImageButton_android_text),
-                icon = it.getDrawable(R.styleable.RemoteControlImageButton_android_src)
+                label = it.getString(R.styleable.RemoteControlButton_android_text),
+                icon = it.getDrawable(R.styleable.RemoteControlButton_android_src),
+                textAppearance = it.getResourceId(
+                    R.styleable.RemoteControlButton_textAppearance,
+                    0
+                ),
+                isFilled = it.getBoolean(R.styleable.RemoteControlButton_filled, false)
             )
         }
 
     private fun setStyledAttributes(attributes: StyledAttributes) {
-        label.text = attributes.label
-        this.icon.setImageDrawable(attributes.icon)
+        label.apply {
+            text = attributes.label
+            if (attributes.textAppearance != 0) setTextAppearance(attributes.textAppearance)
+            if (attributes.isFilled) setBackgroundResource(R.drawable.backgound_remote_button_filled)
+        }
+        setImageDrawable(attributes.icon)
     }
 
     private data class StyledAttributes(
         val label: String?,
-        val icon: Drawable?
+        val icon: Drawable?,
+        @StyleRes val textAppearance: Int,
+        val isFilled: Boolean
     )
+
+    var text: CharSequence?
+        get() = label.text
+        set(text) {
+            label.text = text
+        }
+
+    fun setImageDrawable(drawable: Drawable?) {
+        icon.apply {
+            setImageDrawable(drawable)
+            isInvisible = drawable == null
+        }
+    }
 }

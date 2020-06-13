@@ -60,6 +60,7 @@
     </style>
 
     <style name="TextAppearance.AvBus.RemoteControl.Button" parent="TextAppearance.AvBus.Body1">
+        <item name="android:textColor">?colorOnBackground</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>

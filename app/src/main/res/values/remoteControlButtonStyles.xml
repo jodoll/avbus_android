@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.AvBus.Button.RemoteControl" parent="Widget.MaterialComponents.TextView">
+        <item name="textAppearance">@style/TextAppearance.AvBus.RemoteControl.Button</item>
+        <item name="singleLine">true</item>
+    </style>
+
+    <style name="Widget.AvBus.Button.RemoteControl.Filled">
+        <item name="textAppearance">
+            @style/TextAppearance.AvBus.RemoteControl.Button.Filled
+        </item>
+        <item name="filled">true</item>
+    </style>
+</resources>
