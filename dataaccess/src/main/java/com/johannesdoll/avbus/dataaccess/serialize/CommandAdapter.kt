@@ -5,10 +5,11 @@ import com.johannesdoll.avbus.core.entity.Command.*
 import com.johannesdoll.avbus.core.entity.Device
 import com.squareup.moshi.*
 
+
 internal object CommandAdapter {
     @ToJson
     fun toJson(
-        writer: JsonWriter,
+        jsonWriter: JsonWriter,
         command: Command,
         deviceAdapter: JsonAdapter<Device>,
         tunerAdapter: JsonAdapter<TunerCommand>,
@@ -18,41 +19,70 @@ internal object CommandAdapter {
         phonoAdapter: JsonAdapter<PhonoCommand>,
         cdAdapter: JsonAdapter<CdCommand>
     ) {
-        writer.beginObject()
-        writer.name("device")
-        deviceAdapter.toJson(writer, command.device)
-        when (command) {
-            is TunerCommand -> {
-                writer.name("command")
-                tunerAdapter.toJson(writer, command)
-            }
-            is AmpCommand -> {
-                writer.name("command")
-                ampAdapter.toJson(writer, command)
-            }
-            is TapeCommand -> {
-                writer.name("command")
-                tapeAdapter.toJson(writer, command)
-            }
-            is VcrCommand -> {
-                writer.name("command")
-                vcrAdapter.toJson(writer, command)
-            }
-            is PhonoCommand -> {
-                writer.name("command")
-                phonoAdapter.toJson(writer, command)
-            }
-            is CdCommand -> {
-                writer.name("command")
-                cdAdapter.toJson(writer, command)
+        val writer = CommandWriter(
+            jsonWriter,
+            deviceAdapter,
+            tunerAdapter,
+            ampAdapter,
+            tapeAdapter,
+            vcrAdapter,
+            phonoAdapter,
+            cdAdapter
+        )
+        writer.toJson(command)
+    }
+
+    private class CommandWriter(
+        private val writer: JsonWriter,
+        private val deviceAdapter: JsonAdapter<Device>,
+        private val tunerAdapter: JsonAdapter<TunerCommand>,
+        private val ampAdapter: JsonAdapter<AmpCommand>,
+        private val tapeAdapter: JsonAdapter<TapeCommand>,
+        private val vcrAdapter: JsonAdapter<VcrCommand>,
+        private val phonoAdapter: JsonAdapter<PhonoCommand>,
+        private val cdAdapter: JsonAdapter<CdCommand>
+    ) {
+
+        fun toJson(command: Command) {
+            writer.beginObject()
+            writer.write(command.device)
+            writer.write(command)
+            writer.endObject()
+        }
+
+        private fun JsonWriter.write(device: Device) {
+            name("device")
+            deviceAdapter.toJson(this, device)
+        }
+
+        private fun JsonWriter.write(command: Command) {
+            name("command")
+            when (command) {
+                is TunerCommand -> {
+                    tunerAdapter.toJson(this, command)
+                }
+                is AmpCommand -> {
+                    ampAdapter.toJson(this, command)
+                }
+                is TapeCommand -> {
+                    tapeAdapter.toJson(this, command)
+                }
+                is VcrCommand -> {
+                    vcrAdapter.toJson(this, command)
+                }
+                is PhonoCommand -> {
+                    phonoAdapter.toJson(this, command)
+                }
+                is CdCommand -> {
+                    cdAdapter.toJson(this, command)
+                }
             }
         }
-        writer.endObject()
     }
 
     @FromJson
     fun fromJson(
-        reader: JsonReader,
+        jsonReader: JsonReader,
         deviceAdapter: JsonAdapter<Device>,
         tunerAdapter: JsonAdapter<TunerCommand>,
         ampAdapter: JsonAdapter<AmpCommand>,
@@ -63,39 +93,74 @@ internal object CommandAdapter {
         tvAdapter: JsonAdapter<TvCommand>,
         systemAdapter: JsonAdapter<SystemCommand>
     ): Command? {
-        val command = readJsonCommand(reader)
-        return when (deviceAdapter.fromJsonValue(command.device)) {
-            Device.Tuner -> tunerAdapter.fromJsonValue(command.command)
-            Device.Tv -> tvAdapter.fromJsonValue(command.command)
-            Device.Amp -> ampAdapter.fromJsonValue(command.command)
-            Device.Tape -> tapeAdapter.fromJsonValue(command.command)
-            Device.Vcr -> vcrAdapter.fromJsonValue(command.command)
-            Device.Phono -> phonoAdapter.fromJsonValue(command.command)
-            Device.Cd -> cdAdapter.fromJsonValue(command.command)
-            Device.System -> systemAdapter.fromJsonValue(command.command)
-            null -> null
-        }
+        val reader = CommandReader(
+            jsonReader,
+            deviceAdapter,
+            tunerAdapter,
+            ampAdapter,
+            tapeAdapter,
+            vcrAdapter,
+            phonoAdapter,
+            cdAdapter,
+            tvAdapter,
+            systemAdapter
+        )
+        return reader.fromJson()
     }
 
-    private fun readJsonCommand(reader: JsonReader): JsonCommand {
-        reader.beginObject()
-        var deviceString: String? = null
-        var commandString: String? = null
-        while (reader.hasNext()) {
-            when (reader.nextName()) {
-                "device" -> deviceString = reader.nextString()
-                "command" -> commandString = reader.nextString()
+    private class CommandReader(
+        private val reader: JsonReader,
+        private val deviceAdapter: JsonAdapter<Device>,
+        private val tunerAdapter: JsonAdapter<TunerCommand>,
+        private val ampAdapter: JsonAdapter<AmpCommand>,
+        private val tapeAdapter: JsonAdapter<TapeCommand>,
+        private val vcrAdapter: JsonAdapter<VcrCommand>,
+        private val phonoAdapter: JsonAdapter<PhonoCommand>,
+        private val cdAdapter: JsonAdapter<CdCommand>,
+        private val tvAdapter: JsonAdapter<TvCommand>,
+        private val systemAdapter: JsonAdapter<SystemCommand>
+    ) {
+
+        fun fromJson(): Command? {
+            val command = readJsonCommand(reader)
+            return command.toCommand()
+        }
+
+        private fun readJsonCommand(reader: JsonReader): JsonCommand {
+            reader.beginObject()
+            var deviceString: String? = null
+            var commandString: String? = null
+            while (reader.hasNext()) {
+                when (reader.nextName()) {
+                    "device" -> deviceString = reader.nextString()
+                    "command" -> commandString = reader.nextString()
+                }
+            }
+            reader.endObject()
+
+            checkNotNull(deviceString) { "$reader is missing 'device'" }
+            checkNotNull(commandString) { "$reader is missing 'command'" }
+            return JsonCommand(deviceString, commandString)
+        }
+
+        private fun JsonCommand.toCommand(): Command? {
+            return when (deviceAdapter.fromJsonValue(device)) {
+                Device.Tuner -> tunerAdapter.fromJsonValue(command)
+                Device.Tv -> tvAdapter.fromJsonValue(command)
+                Device.Amp -> ampAdapter.fromJsonValue(command)
+                Device.Tape -> tapeAdapter.fromJsonValue(command)
+                Device.Vcr -> vcrAdapter.fromJsonValue(command)
+                Device.Phono -> phonoAdapter.fromJsonValue(command)
+                Device.Cd -> cdAdapter.fromJsonValue(command)
+                Device.System -> systemAdapter.fromJsonValue(command)
+                null -> null
             }
         }
-        reader.endObject()
 
-        checkNotNull(deviceString) { "$reader is missing 'device'" }
-        checkNotNull(commandString) { "$reader is missing 'command'" }
-        return JsonCommand(deviceString, commandString)
+        private data class JsonCommand(
+            val device: String,
+            val command: String
+        )
     }
 
-    private data class JsonCommand(
-        val device: String,
-        val command: String
-    )
 }

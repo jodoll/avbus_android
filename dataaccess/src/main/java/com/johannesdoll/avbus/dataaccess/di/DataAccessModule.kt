@@ -2,6 +2,7 @@ package com.johannesdoll.avbus.dataaccess.di
 
 import com.johannesdoll.avbus.core.application.send.command.port.out.SendCommandOutputPort
 import com.johannesdoll.avbus.dataaccess.remotecontrol.SendCommandAdapter
+import com.johannesdoll.avbus.dataaccess.serialize.CommandAdapter
 import com.johannesdoll.avbus.dataaccess.serialize.DeviceAdapter
 import com.johannesdoll.avbus.dataaccess.serialize.SpecificCommandAdapter
 import com.squareup.moshi.Moshi
@@ -21,6 +22,7 @@ abstract class DataAccessModule {
     companion object Provider {
         @Provides
         internal fun provideMoshi() = Moshi.Builder()
+            .add(CommandAdapter)
             .add(SpecificCommandAdapter)
             .add(DeviceAdapter)
             .build()
