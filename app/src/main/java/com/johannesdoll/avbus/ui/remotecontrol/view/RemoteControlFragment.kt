@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.johannesdoll.avbus.R
+import com.johannesdoll.avbus.core.entity.Command
+import kotlinx.android.synthetic.main.main_fragment.*
 
 
 class RemoteControlFragment : Fragment() {
@@ -34,6 +36,7 @@ class RemoteControlFragment : Fragment() {
     }
 
     private fun connectController() {
+        phonoButton.setOnClickListener { controller.sendCommand(Command.AmpCommand.INPUT_PHONO) }
         // TODO
     }
 

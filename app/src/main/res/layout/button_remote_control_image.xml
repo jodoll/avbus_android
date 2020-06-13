@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:gravity="center_horizontal"
+    tools:layot_width="wrap_content"
+    tools:layout_height="wrap_content"
+    tools:orientation="vertical"
+    tools:padding="@dimen/button_remote_control_padding"
+    tools:parentTag="android.widget.LinearLayout">
 
     <ImageView
         android:id="@+id/image"
@@ -15,6 +16,7 @@
         android:src="@drawable/ic_cd_48dp" />
 
     <TextView
+        android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="true"
@@ -22,4 +24,4 @@
         android:textStyle="bold"
         tools:text="Phono" />
 
-</LinearLayout>
+</merge>
