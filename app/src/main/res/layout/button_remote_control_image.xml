@@ -17,11 +17,9 @@
 
     <TextView
         android:id="@+id/label"
+        style="@style/Widget.AvBus.TextView.RemoteControl.Button.Label.Filled"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="true"
-        android:textAppearance="?textAppearanceBody1"
-        android:textStyle="bold"
         tools:text="Phono" />
 
 </merge>

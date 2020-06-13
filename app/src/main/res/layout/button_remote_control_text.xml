@@ -8,14 +8,9 @@
     android:padding="16dp">
 
     <TextView
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
+        style="@style/Widget.AvBus.TextView.RemoteControl.Button.Label.Filled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/backgound_remote_button_filled"
-        android:textAllCaps="true"
-        android:textAppearance="?textAppearanceBody1"
-        android:textColor="?android:colorBackground"
         tools:text="Video" />
 
 </LinearLayout>

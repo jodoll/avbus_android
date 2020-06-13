@@ -58,4 +58,14 @@
         <item name="android:textColor">?colorPrimary</item>
         <item name="textAllCaps">true</item>
     </style>
+
+    <style name="TextAppearance.AvBus.RemoteControl.Button" parent="TextAppearance.AvBus.Body1">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.AvBus.RemoteControl.Button.Filled">
+        <item name="android:textColor">?android:colorBackground</item>
+        <item name="android:textStyle">normal</item>
+    </style>
 </resources>

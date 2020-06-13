@@ -6,4 +6,20 @@
         <item name="android:background">@drawable/backgound_border</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="Widget.AvBus.TextView.RemoteControl.Button.Label" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.AvBus.RemoteControl.Button</item>
+        <item name="android:paddingStart">
+            @dimen/remote_control_button_label_padding_horizontal
+        </item>
+        <item name="android:paddingEnd">@dimen/remote_control_button_label_padding_horizontal</item>
+        <item name="singleLine">true</item>
+    </style>
+
+    <style name="Widget.AvBus.TextView.RemoteControl.Button.Label.Filled">
+        <item name="android:textAppearance">
+            @style/TextAppearance.AvBus.RemoteControl.Button.Filled
+        </item>
+        <item name="android:background">@drawable/backgound_remote_button_filled</item>
+    </style>
 </resources>
