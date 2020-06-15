@@ -12,6 +12,7 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             tools:title="Amp"
+            android:theme="@style/AppTheme.ToolbarOverlay"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
