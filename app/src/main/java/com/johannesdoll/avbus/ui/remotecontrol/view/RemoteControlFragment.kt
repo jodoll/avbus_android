@@ -36,6 +36,7 @@ class RemoteControlFragment : Fragment() {
     }
 
     private fun connectController() {
+        tunerButton.setOnClickListener { controller.sendCommand(Command.AmpCommand.INPUT_TAPE_MON) }
         phonoButton.setOnClickListener { controller.sendCommand(Command.AmpCommand.INPUT_PHONO) }
         // TODO
     }
