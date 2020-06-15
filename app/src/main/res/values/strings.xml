@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">AvBus</string>
-    <string name="remote_control_amp">Amp</string>
+    <string name="remote_control_device_amp">Amp</string>
 </resources>

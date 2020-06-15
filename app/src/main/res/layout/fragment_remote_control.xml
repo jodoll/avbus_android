@@ -8,16 +8,6 @@
     android:padding="16dp"
     tools:context=".ui.remotecontrol.view.RemoteControlFragment">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/deviceName"
-        style="@style/Widget.AvBus.TextView.RemoteControl.Device"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/remote_control_amp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -35,7 +25,7 @@
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/deviceName">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
             android:id="@+id/tunerButton"
