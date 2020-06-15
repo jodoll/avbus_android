@@ -11,15 +11,15 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            tools:title="Amp"
-            android:theme="@style/AppTheme.ToolbarOverlay"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.ToolbarOverlay"
+            tools:title="Amp" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/container"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/device_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
