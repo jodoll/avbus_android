@@ -26,7 +26,6 @@ class RemoteControlFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        requireActivity().title = getString(R.string.remote_control_device_amp)
         return inflater.inflate(R.layout.fragment_remote_control, container, false)
     }
 

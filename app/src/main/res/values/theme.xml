@@ -28,9 +28,4 @@
         <item name="textAppearanceButton">@style/TextAppearance.AvBus.Button</item>
         <item name="textAppearanceOverline">@style/TextAppearance.AvBus.Overline</item>
     </style>
-
-    <style name="AppTheme.ToolbarOverlay" parent="ThemeOverlay.MaterialComponents.Toolbar.Surface">
-        <item name="android:textColorPrimary">@color/primaryColor</item>
-    </style>
-
 </resources>
