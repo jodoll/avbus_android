@@ -1,13 +1,14 @@
-package com.johannesdoll.avbus
+package com.johannesdoll.avbus.ui.remotecontrol
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.johannesdoll.avbus.R
 import com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlFragment
-import kotlinx.android.synthetic.main.main_activity.*
+import kotlinx.android.synthetic.main.activity_remote_control.*
 
-class MainActivity : AppCompatActivity(R.layout.main_activity) {
+class RemoteControlActivity : AppCompatActivity(R.layout.activity_remote_control) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
