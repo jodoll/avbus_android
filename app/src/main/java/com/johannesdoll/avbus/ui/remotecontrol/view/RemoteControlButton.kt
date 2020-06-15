@@ -81,6 +81,7 @@ class RemoteControlButton : LinearLayout {
             StyledAttributes(
                 label = it.getString(R.styleable.RemoteControlButton_android_text),
                 icon = it.getDrawable(R.styleable.RemoteControlButton_android_src),
+                background = it.getDrawable(R.styleable.RemoteControlButton_background),
                 textAppearance = it.getResourceId(
                     R.styleable.RemoteControlButton_textAppearance,
                     0
@@ -96,11 +97,13 @@ class RemoteControlButton : LinearLayout {
             if (attributes.isFilled) setBackgroundResource(R.drawable.backgound_remote_button_filled)
         }
         setImageDrawable(attributes.icon)
+        attributes.background?.let { background = it }
     }
 
     private data class StyledAttributes(
         val label: String?,
         val icon: Drawable?,
+        val background: Drawable?,
         @StyleRes val textAppearance: Int,
         val isFilled: Boolean
     )
