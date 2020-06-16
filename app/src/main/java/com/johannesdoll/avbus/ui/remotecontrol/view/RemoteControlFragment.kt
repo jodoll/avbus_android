@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.johannesdoll.avbus.R
 import com.johannesdoll.avbus.core.entity.Command
+import com.johannesdoll.avbus.core.entity.Command.AmpCommand
 import kotlinx.android.synthetic.main.fragment_remote_control.*
 
 
@@ -36,9 +37,17 @@ class RemoteControlFragment : Fragment() {
     }
 
     private fun connectController() {
-        tunerButton.setOnClickListener { controller.sendCommand(Command.AmpCommand.INPUT_TAPE_MON) }
-        phonoButton.setOnClickListener { controller.sendCommand(Command.AmpCommand.INPUT_PHONO) }
-        // TODO
+        tunerButton.setOnClickListener { AmpCommand.INPUT_TAPE_MON.send() }
+        phonoButton.setOnClickListener { AmpCommand.INPUT_PHONO.send() }
+        cdButton.setOnClickListener { AmpCommand.INPUT_CD.send() }
+        tapeButton.setOnClickListener { AmpCommand.INPUT_TAPE_MON.send() }
+        tvButton.setOnClickListener { AmpCommand.INPUT_TV.send() }
+        videoButton.setOnClickListener { AmpCommand.INPUT_VIDEO.send() }
+        vcrButton.setOnClickListener { AmpCommand.INPUT_VCR.send() }
+    }
+
+    private fun Command.send() {
+        controller.sendCommand(this)
     }
 
     private fun observeModel() {
