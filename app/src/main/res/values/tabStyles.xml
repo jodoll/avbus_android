@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.AvBus.TabLayout.RemoteControl" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextColor">@color/onBackgroundColor</item>
+        <item name="tabSelectedTextColor">@color/primaryColor</item>
+    </style>
+</resources>
