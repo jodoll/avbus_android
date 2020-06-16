@@ -13,6 +13,12 @@
         <item name="android:colorBackground">@color/backgroundColor</item>
         <item name="colorOnBackground">@color/onBackgroundColor</item>
 
+        <!-- Text colors -->
+        <item name="android:textColor">@color/onBackgroundColor</item>
+        <item name="android:textColorPrimary">@color/onBackgroundColor</item>
+        <item name="android:textColorSecondary">@color/onBackgroundColor</item>
+        <item name="android:textColorTertiary">@color/onBackgroundColor</item>
+
         <!-- New MaterialComponents attributes. -->
         <item name="textAppearanceHeadline1">@style/TextAppearance.AvBus.Headline1</item>
         <item name="textAppearanceHeadline2">@style/TextAppearance.AvBus.Headline2</item>
