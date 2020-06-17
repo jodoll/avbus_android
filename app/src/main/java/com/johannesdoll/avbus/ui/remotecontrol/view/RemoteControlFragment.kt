@@ -44,6 +44,9 @@ class RemoteControlFragment : Fragment() {
         tvButton.setOnClickListener { AmpCommand.INPUT_TV.send() }
         videoButton.setOnClickListener { AmpCommand.INPUT_VIDEO.send() }
         vcrButton.setOnClickListener { AmpCommand.INPUT_VCR.send() }
+
+        volume_down.setOnClickListener { AmpCommand.VOLUME_DOWN_FRONT.send() }
+        volume_up.setOnClickListener { AmpCommand.VOLUME_UP_FRONT.send() }
     }
 
     private fun Command.send() {
