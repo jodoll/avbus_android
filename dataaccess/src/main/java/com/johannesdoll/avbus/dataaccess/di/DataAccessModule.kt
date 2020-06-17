@@ -1,6 +1,7 @@
 package com.johannesdoll.avbus.dataaccess.di
 
 import com.johannesdoll.avbus.core.application.send.command.port.out.SendCommandOutputPort
+import com.johannesdoll.avbus.dataaccess.BuildConfig
 import com.johannesdoll.avbus.dataaccess.remotecontrol.SendCommandAdapter
 import com.johannesdoll.avbus.dataaccess.serialize.CommandAdapter
 import com.johannesdoll.avbus.dataaccess.serialize.DeviceAdapter
@@ -10,6 +11,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 
 @Module
 abstract class DataAccessModule {
@@ -29,6 +31,9 @@ abstract class DataAccessModule {
 
         @Provides
         internal fun provideOkHttpClient() = OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                if (BuildConfig.DEBUG) level = HttpLoggingInterceptor.Level.BODY
+            })
             .build()
 
     }
