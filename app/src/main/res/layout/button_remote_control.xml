@@ -13,7 +13,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/ic_cd_48dp" />
+        android:src="@drawable/ic_cd" />
 
     <TextView
         android:id="@+id/label"

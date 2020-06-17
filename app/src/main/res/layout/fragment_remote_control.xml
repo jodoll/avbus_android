@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_tuner_48dp"
+            android:src="@drawable/ic_tuner"
             android:text="Tuner" />
 
         <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
@@ -40,7 +40,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_phono_48dp"
+            android:src="@drawable/ic_phono"
             android:text="Phono" />
 
         <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
@@ -48,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_cd_48dp"
+            android:src="@drawable/ic_cd"
             android:text="Cd" />
 
         <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
@@ -76,7 +76,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_tv_48dp"
+            android:src="@drawable/ic_tv"
             android:text="Tv" />
 
         <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
@@ -85,7 +85,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_video_48dp"
+            android:src="@drawable/ic_video"
             android:text="Video" />
 
         <com.johannesdoll.avbus.ui.remotecontrol.view.RemoteControlButton
