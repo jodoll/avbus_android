@@ -16,7 +16,7 @@ internal class SendCommandAdapter @Inject constructor(
 ) : SendCommandOutputPort {
 
     private val remoteApi = RetrofitFactory(moshi, client)
-        .createRemoteControlApi("192.168.2.194")
+        .createRemoteControlApi("192.168.2.190")
 
     override suspend fun sendCommand(command: Command) = remoteApi
         .executeNetworkCall { sendCommand(command) }
@@ -24,7 +24,7 @@ internal class SendCommandAdapter @Inject constructor(
 
     private fun NetworkError.toIoError() = when (this) {
         is NetworkError.HttpError -> IoError.TransportError(statusCode.toString())
+        is NetworkError.Unknown -> IoError.Unknown(message)
         NetworkError.TimeoutError -> IoError.Timeout
-        NetworkError.Unknown -> IoError.Unknown
     }
 }

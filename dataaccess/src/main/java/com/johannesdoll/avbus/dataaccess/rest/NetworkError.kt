@@ -39,14 +39,17 @@ internal sealed class NetworkError {
         ) : HttpError()
     }
 
+    data class Unknown(
+        val message: String
+    ) : NetworkError()
+
     object TimeoutError : NetworkError()
-    object Unknown : NetworkError()
 }
 
 internal fun Throwable.toNetworkError(): NetworkError = when (this) {
     is HttpException -> code().toHttpError()
     is SocketTimeoutException -> NetworkError.TimeoutError
-    is IOException -> Unknown
+    is IOException -> Unknown(this.toString())
     else -> throw this
 }
 

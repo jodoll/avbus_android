@@ -5,6 +5,9 @@ sealed class IoError {
         val reason: String
     ) : IoError()
 
+    data class Unknown(
+        val message: String
+    ) : IoError()
+
     object Timeout : IoError()
-    object Unknown : IoError()
 }

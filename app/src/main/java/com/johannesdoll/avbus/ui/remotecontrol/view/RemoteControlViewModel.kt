@@ -9,6 +9,7 @@ import com.johannesdoll.avbus.core.entity.IoError
 import com.johannesdoll.avbus.ui.remotecontrol.di.RemoteControlComponent
 import com.johannesdoll.avbus.ui.remotecontrol.util.livedata.onLeft
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 class RemoteControlViewModel
@@ -30,15 +31,18 @@ class RemoteControlViewModel
     override fun sendCommand(command: Command) {
         viewModelScope.launch {
             useCase.sendCommand(command)
-                .onLeft { handeIoError(it) }
+                .onLeft {
+                    Timber.e(it.toString())
+                    handeIoError(it)
+                }
         }
     }
 
     private fun handeIoError(error: IoError) {
         ioError.value = when (error) {
             is IoError.TransportError -> error.reason //TODO: localize?
+            is IoError.Unknown -> "Unknown Error Occurred" //TODO: extract
             IoError.Timeout -> "Timeout Occurred" //TODO: extract
-            IoError.Unknown -> "Unknown Error Occurred" //TODO: extract
         }
     }
 
