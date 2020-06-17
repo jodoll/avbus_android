@@ -6,6 +6,6 @@ import retrofit2.http.POST
 
 internal interface RemoteControlApi {
 
-    @POST("/remote/command")
+    @POST("remote/command")
     suspend fun sendCommand(@Body command: Command)
 }
