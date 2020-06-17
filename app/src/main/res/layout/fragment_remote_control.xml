@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_tape_alternate"
+            android:src="@drawable/ic_tape"
             android:text="Tape/Mon" />
     </LinearLayout>
 
@@ -94,7 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_vcr_alternate_3"
+            android:src="@drawable/ic_vcr"
             android:text="Vcr" />
     </LinearLayout>
 
